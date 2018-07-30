@@ -5,4 +5,4 @@ before_install:
     - "sudo apt-get update"
     - "sudo apt-get install atlassian-plugin-sdk"
 install: "atlas-mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V"
-script: "atlas-mvn test -B"
+script: "atlas-mvn integration-test -B"
