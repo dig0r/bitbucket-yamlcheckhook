@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<atlassian-plugin key="${atlassian.plugin.key}"
+                  name="${project.name}"
+                  i18n-name-key="yamlcheckhook.name"
+                  plugins-version="2">
+    <resource type="i18n" name="i18n" location="yamlcheckhook" />
+    <plugin-info>
+        <description key="yamlcheckhook.description">
+            Checks YAML files during push or in pull requests for validity.
+        </description>
+        <version>${project.version}</version>
+        <vendor name="${project.organization.name}"
+                url="${project.organization.url}"/>
+        <param name="plugin-icon">images/pluginIcon.png</param>
+        <param name="plugin-logo">images/pluginIcon.png</param>
+    </plugin-info>
+    <!-- add our web resources -->
+    <web-resource key="yamlcheckhook-resources"
+                  name="yamlcheckhook Web Resources">
+        <dependency>com.atlassian.auiplugin:ajs</dependency>
+        <resource type="download" name="images/" location="/images"/>
+        <context>yamlcheckhook</context>
+    </web-resource>
+    <repository-hook key="yaml-check-hook"
+                     name="YAML Checkhook Repository Hook"
+                     i18n-name-key="yamlcheckhook.repository-hook.name"
+                     class="io.github.dodevops.bitbucket.yamlcheckhook.hook.PushHook">
+        <description key="yamlcheckhook.repository-hook.description"/>
+        <scopes>
+            <scope>project</scope>
+            <scope>repository</scope>
+        </scopes>
+        <icon>images/pluginIcon.png</icon>
+    </repository-hook>
+    <repository-merge-check key="yaml-check-merge-hook"
+                            name="YAML Checkhook Merge Hook"
+                            i18n-name-key="yamlcheckhook.merge-hook.name"
+                            class="io.github.dodevops.bitbucket.yamlcheckhook.hook.PullRequestHook">
+        <description key="yamlcheckhook.merge-hook.description"/>
+        <scopes>
+            <scope>project</scope>
+            <scope>repository</scope>
+        </scopes>
+        <icon>images/pluginIcon.png</icon>
+    </repository-merge-check>
+</atlassian-plugin>
