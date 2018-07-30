@@ -4,4 +4,5 @@ before_install:
     - "curl https://packages.atlassian.com/api/gpg/key/public | sudo apt-key add -"
     - "sudo apt-get update"
     - "sudo apt-get install atlassian-plugin-sdk"
+install: "atlas-mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V"
 script: "atlas-mvn test -B"
