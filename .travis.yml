@@ -1,6 +1,7 @@
-language: java
+language: "java"
 before_install:
     - "sudo apt-add-repository 'deb https://packages.atlassian.com/atlassian-sdk-deb stable contrib'"
     - "curl https://packages.atlassian.com/api/gpg/key/public | sudo apt-key add -"
     - "sudo apt-get update"
     - "sudo apt-get install atlassian-plugin-sdk"
+script: "atlas-mvn test -B"
