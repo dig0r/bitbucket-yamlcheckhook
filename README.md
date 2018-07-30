@@ -6,6 +6,10 @@ This plugin provides hooks for pushes and pull requests and will check added or 
 
 ## Usage
 
-Either download the current release jar or install the plugin from the Atlassian Marketplace.
+Download the current [release jar](https://github.com/dodevops/bitbucket-yamlcheckhook/releases) and upload the file to the Bitbucket Addons UI.
 
-(TODO: update documentation)
+Afterwards, the hook can be enabled for projects and repositories in the hooks (for pushes) or the merge checks (for pull requests) settings.
+
+## Contributing
+
+Please see our [contribution guidelines](https://github.com/dodevops/bitbucket-yamlcheckhook/blob/master/CONTRIBUTING.md)
