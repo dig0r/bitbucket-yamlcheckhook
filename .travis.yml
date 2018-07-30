@@ -7,11 +7,12 @@ before_install:
 - sudo apt-get install atlassian-plugin-sdk
 install: atlas-mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 script: atlas-mvn integration-test -B
+before_deploy: "ls -1 target/*.jar | grep -v tests | xargs -I '{}' mv '{}' target/yamlcheckhook.jar"
 deploy:
   provider: releases
   skip_cleanup: true
   api_key:
     secure: sdxPBJ+NApOAwxkIlk3ehphrdNI2cN2AmgG6bj/66gCwaxamwY9IyQcMIXbatTV8R3qLIFY9At5Pf3XkjOlEV8eTWvhGF458WUxvMtm8iIzXm70S0ssMymai+NcMUTmGZUtwGMNH9xnny/0ZJpCBgrA8mosPBkMKoOZ0SRCAOp2aW4j2P/4ZfgJUwLjIbyxIolxgymzra6hqIE9gY4PbOVPm41W6rNaM8bXyS3ZbOOsvDQ2crCew3CoZxoCDCJW95SuRhw9VpEi65Xbn5KvpK5/2ORqy2zrWWozu4in5fZbn2khoZne+fRIwokyOtvZq0dja1c9m4OT7yWjyyrxsME8hJH9EcQPxRmXbqC5Ab6/ZjvnzvYeJVr82UZURrN5b1OowAzjpWTwsdpfgpsMqv+w7+SYvjQfvdVvEaYiRXk7hIPhm5ocESAfKYS1tvo9gF4SDxJ5GAFigBFzFvqhrJzdpGyKmbdr6jRyJ72t99VwbdcIsCykgsRbeRUGW7bkBtyseiLnDBQfHOHa4dg2aq7Ix+o/8TgdcVYruIC/G2r6lHCwxwem9mEPxy9rUgxY4pJc+RVyW+cmHIkksrBsEEQeQVc0K0LLXRKqxByEARG+jCjT51ff3A34uG84U4kyBvdhDSjFEXFNw9ZOGNv7haPollbg52DETFjCzJ+cmnVA=
-  file: target/*.jar
+  file: target/yamlcheckhook.jar
   on:
     tags: true
