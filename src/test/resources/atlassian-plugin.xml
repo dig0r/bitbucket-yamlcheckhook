@@ -4,8 +4,4 @@
         <version>${project.version}</version>
         <vendor name="${project.organization.name}" url="${project.organization.url}" />
     </plugin-info>
-    <component-import key="repositoryService" interface="com.atlassian.bitbucket.repository.RepositoryService"/>
-    <component-import key="projectService" interface="com.atlassian.bitbucket.project.ProjectService"/>
-    <component-import key="pullRequestService" interface="com.atlassian.bitbucket.pull.PullRequestService"/>
-    <component-import key="authenticationService" interface="com.atlassian.bitbucket.auth.AuthenticationService"/>
 </atlassian-plugin>
