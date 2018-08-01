@@ -109,7 +109,7 @@ public class PullRequestTest {
             // Create an invalid Yaml file
 
             Files.write(
-                Paths.get(localPath.getAbsolutePath(), "invalid.yaml"),
+                Paths.get(localPath.getAbsolutePath(), "invalidPull.yaml"),
                 Arrays.asList(
                     "b1:",
                     "  b2",
@@ -118,7 +118,7 @@ public class PullRequestTest {
                 Charset.forName("UTF-8")
             );
 
-            git.add().addFilepattern("invalid.yaml").call();
+            git.add().addFilepattern("invalidPull.yaml").call();
 
             git.commit().setMessage("Invalid file").call();
 

@@ -37,7 +37,7 @@ public class PushTest {
             // Create an invalid Yaml file
 
             Files.write(
-                Paths.get(localPath.getAbsolutePath(), "invalid.yaml"),
+                Paths.get(localPath.getAbsolutePath(), "invalidPush.yaml"),
                 Arrays.asList(
                     "b1:",
                     "  b2",
@@ -46,7 +46,7 @@ public class PushTest {
                 Charset.forName("UTF-8")
             );
 
-            git.add().addFilepattern("invalid.yaml").call();
+            git.add().addFilepattern("invalidPush.yaml").call();
 
             git.commit().setMessage("Invalid file").call();
 

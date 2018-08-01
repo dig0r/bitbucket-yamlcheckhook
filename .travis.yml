@@ -6,7 +6,7 @@ before_install:
 - sudo apt-get update
 - sudo apt-get install atlassian-plugin-sdk
 install: atlas-mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
-script: atlas-mvn integration-test -B
+script: atlas-mvn clean org.openclover:clover-maven-plugin:setup -B && atlas-mvn package integration-test org.openclover:clover-maven-plugin:aggregate org.openclover:clover-maven-plugin:clover -B
 before_deploy: "ls -1 target/*.jar | grep -v tests | xargs -I '{}' mv '{}' target/yamlcheckhook.jar"
 deploy:
   provider: releases
